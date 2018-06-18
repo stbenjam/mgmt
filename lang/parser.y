@@ -1027,12 +1027,12 @@ type:
 		posLast(yylex, yyDollar) // our pos
 		$$.typ = types.NewType("[]" + $3.typ.String())
 	}
-|	OPEN_CURLY type COLON type CLOSE_CURLY
-	// map: {str: int} or {str: []int}
-	{
-		posLast(yylex, yyDollar) // our pos
-		$$.typ = types.NewType(fmt.Sprintf("{%s: %s}", $2.typ.String(), $4.typ.String()))
-	}
+//|	OPEN_CURLY type COLON type CLOSE_CURLY
+//	// map: {str: int} or {str: []int}
+//	{
+//		posLast(yylex, yyDollar) // our pos
+//		$$.typ = types.NewType(fmt.Sprintf("{%s: %s}", $2.typ.String(), $4.typ.String()))
+//	}
 |	STRUCT_IDENTIFIER OPEN_CURLY type_struct_fields CLOSE_CURLY
 	// struct: struct{} or struct{a bool} or struct{a bool; bb int}
 	{
